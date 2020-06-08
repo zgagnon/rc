@@ -2,13 +2,13 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/zgagnon/.oh-my-zsh"
+export ZSH="/Users/zoe.gagnon/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(vcs nodeenv aws newline dir newline command_execution_time status)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
@@ -88,7 +88,7 @@ plugins=(
 zstyle :omz:plugins:ssh-agent identities github
 
 
-source $ZSH/oh-my-zsh.sh
+#source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -122,26 +122,15 @@ eval "$(nodenv init -)"
 eval "$(rbenv init -)"
 
 
-#export dir colors
-export `gdircolors`
 
 
 #set local bin
-export PATH="/Users/zgagnon/.bin/:/Users/zgagnon/Library/Python/3.7/bin:/Users/zgagnon/bin/:$PATH"
+export PATH="/Users/zoe.gagnon/.bin/:/Users/zoe.gagnon/Library/Python/3.7/bin:/Users/zoe.gagnon/bin/:$PATH"
 
-source .exports
+#source .exports
 
 alias git="git-together"
 
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /Users/zgagnon/workspace/member-engagement/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/zgagnon/workspace/member-engagement/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /Users/zgagnon/workspace/member-engagement/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/zgagnon/workspace/member-engagement/node_modules/tabtab/.completions/sls.zsh
-# tabtab source for slss package
-# uninstall by removing these lines or running `tabtab uninstall slss`
-[[ -f /Users/zgagnon/workspace/member-engagement/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/zgagnon/workspace/member-engagement/node_modules/tabtab/.completions/slss.zsh
 eval "$(direnv hook zsh)"
 
 export LS_COLORS="di=1;35:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
