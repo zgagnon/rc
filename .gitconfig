@@ -1,6 +1,7 @@
 [core]
 	editor = /usr/bin/vim
 	compression = 9
+	excludesfile = /Users/zoe.gagnon/.gitignore
 [push]
 	default = simple
 [alias]
@@ -34,3 +35,7 @@
 	tool = p4merge
 [difftool "p4merge"]
   path = /Applications/p4merge.app/Contents/Resources/launchp4merge
+[include]
+	path = /Users/zoe.gagnon/.git-together
+[rerere]
+	enabled = true

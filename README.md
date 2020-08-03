@@ -1,2 +1,3 @@
 # rc
-Collection of *rc files I use
+Collection of dotfiles, rc files, and workstation setup scripts I use
+

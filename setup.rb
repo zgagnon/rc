@@ -1,3 +1,9 @@
+#!/usr/bin/ruby
+
+puts
+puts 'Installing home brew package manager'
+
+system(/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)")
 require 'mkmf'
 require 'open3'
 require 'set'
