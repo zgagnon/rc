@@ -7,10 +7,11 @@ require_relative './plugins/brew'
 require_relative './plugins/vundle'
 require_relative './plugins/oh-my-zsh'
 require_relative './plugins/fasd'
+require_relative './plugins/ykman'
 
 puts 'Checking for applications'
 
-applications = [Vundle.new, ASDF.new, Brew.new, OhMyZsh.new, FASD.new].sort
+applications = [YKMan.new, Vundle.new, ASDF.new, Brew.new, OhMyZsh.new, FASD.new].sort
 
 app_needs_install = {}
 
@@ -34,12 +35,18 @@ def checking_for(m, fmt = nil)
   r
 end
 
+$needs_install = []
+
 applications.each do |app|
   installed = checking_for(app.to_s) do
     app.is_installed?
   end
 
   unless installed
-    app.install
+    $needs_install.push app
   end
+end
+
+$needs_install.each do |app|
+  app.install
 end
