@@ -8,10 +8,11 @@ require_relative './plugins/vundle'
 require_relative './plugins/oh-my-zsh'
 require_relative './plugins/fasd'
 require_relative './plugins/ykman'
+require_relative './plugins/buildkite'
 
 puts 'Checking for applications'
 
-applications = [YKMan.new, Vundle.new, ASDF.new, Brew.new, OhMyZsh.new, FASD.new].sort
+applications = [Buildkite.new, YKMan.new, Vundle.new, ASDF.new, Brew.new, OhMyZsh.new, FASD.new].sort
 
 app_needs_install = {}
 
