@@ -19,13 +19,14 @@
 	lola = log --graph --decorate --oneline --all
 	blog = log origin/master... --left-right
 	ds = diff
+	update = commit --amend --no-edit
 	fixup = commit
 	squash = commit
 	unstage = reset
 	rum = rebase master@{u}
 [user]
 	name = Zoe Gagnon
-	email = zgagnon@meetup.com
+	email = zoe@zgagnon.com
 
 [merge]
 	tool = p4merge
