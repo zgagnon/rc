@@ -1,0 +1,88 @@
+# espanso configuration file
+
+# This is the default configuration file, change it as you like it
+# You can refer to the official documentation:
+# https://espanso.org/docs/
+
+  
+# Matches are the substitution rules, when you type the "trigger" string
+# it gets replaced by the "replace" string.
+matches:
+  # Simple text replacement
+  - trigger: ":espanso"
+    replace: "Hi there!"
+
+  # Dates
+  - trigger: ":date"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%Y%m%d"
+  - trigger: ":now"
+    replace: "{{mytime}}"
+    vars:
+      - name: mytime 
+        type: date 
+        params:
+          format: "%H%M"
+  - trigger: ":zettel"
+    replace: "{{mydate}}{{mytime}}"
+    vars:
+      - name: mydate
+        type: match
+        params:
+          trigger: ":mydate"
+      - name: mytime
+        type: match
+        params:
+          trigger: ":mytime"
+  # Obsidian Specific
+  - trigger: ":1"
+    replace: "# $|$"
+  - trigger: ":2"
+    replace: "## $|$"
+  - trigger: ":3"
+    replace: "### $|$"
+  - trigger: ":4"
+    replace: "#### $|$"
+  - trigger: ":5"
+    replace: "##### $|$"
+  - trigger: ":quote"
+    replace: |-
+      >{{clipboard}}
+      —$|$
+    vars:
+      - name: clipboard
+        type: clipboard
+  - trigger: ":^"
+    replace: "[^$|$]: {{clipboard}}"
+    vars:
+      - name: clipboard
+        type: clipboard
+  - trigger: ":!^"
+    replace: "[^$|$]: !{{clipboard}}"
+    vars:
+      - name: clipboard
+        type: clipboard
+  - trigger: ":daily"
+    replace: "[^$|$]: ![[{{mydate}}]]"
+    vars:
+      - name: mydate
+        type: match
+        params:
+          trigger: ":date"
+  - trigger: ":[^"
+    replace: "[^$|$]: ![[{{clipboard}}]]"
+    vars:
+      - name: clipboard
+        type: clipboard
+  # Shell commands
+  - trigger: ":shell"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "echo Hello from your shell"
