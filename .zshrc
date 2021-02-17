@@ -80,7 +80,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git fasd)
+plugins=(git fasd nix-shell)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -118,9 +118,8 @@ export PATH="$HOME/.bin:$PATH"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Automatically set the environment based on config files, per directory
-#. $(brew --prefix asdf)/asdf.sh
-export PATH="$HOME/.asdf/bin:$PATH"
-emulate zsh -c "$(direnv hook zsh)"
+eval "$(direnv hook zsh)"
+
 
 #Aliases
 alias v='f -e vim'
@@ -132,3 +131,13 @@ zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
 fpath=(~/.zsh $fpath)
 
 autoload -Uz compinit && compinit
+
+export EDITOR='vi'
+export AWS_VAULT_KEYCHAIN_NAME=loginAWS_VAULT_PROMPT=ykman
+
+alias lerna="pnpx lerna"
+if [ -e /Users/zoe.gagnon/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/zoe.gagnon/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+function v {
+	vim `f $1`
+}
