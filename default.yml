@@ -11,7 +11,8 @@ matches:
   # Simple text replacement
   - trigger: ":espanso"
     replace: "Hi there!"
-
+  - trigger: ":one"
+    replace: "1<->1"    
   # Dates
   - trigger: ":date"
     replace: "{{mydate}}"
@@ -86,3 +87,14 @@ matches:
         type: shell
         params:
           cmd: "echo Hello from your shell"
+  # Parachute specific
+  - trigger: ":candidate"
+    replace: | 
+      Hi $|$,
+      Thank you for your availability. This will be a 2-hour pair programming session with <_______>. To prepare for this, please
+      install Tuple (https://tupple.app), our preferred pair programming tool. This will allow us to remotely pair. You will not need anything 
+      else set up on your machine. Please feel free to ask if you have any questions.
+
+      Thanks,
+      Zoe
+
