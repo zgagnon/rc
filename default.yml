@@ -9,78 +9,78 @@
 # it gets replaced by the "replace" string.
 matches:
   # Simple text replacement
-  - trigger: ":espanso"
+  - trigger: ";espanso"
     replace: "Hi there!"
-  - trigger: ":one"
+  - trigger: ";one"
     replace: "1<->1"    
   # Dates
-  - trigger: ":date"
+  - trigger: ";date"
     replace: "{{mydate}}"
     vars:
       - name: mydate
         type: date
         params:
           format: "%Y%m%d"
-  - trigger: ":now"
+  - trigger: ";now"
     replace: "{{mytime}}"
     vars:
       - name: mytime 
         type: date 
         params:
           format: "%H%M"
-  - trigger: ":zettel"
+  - trigger: ";zettel"
     replace: "{{mydate}}{{mytime}}"
     vars:
       - name: mydate
         type: match
         params:
-          trigger: ":mydate"
+          trigger: ";mydate"
       - name: mytime
         type: match
         params:
-          trigger: ":mytime"
+          trigger: ";mytime"
   # Obsidian Specific
-  - trigger: ":1"
+  - trigger: ";1"
     replace: "# $|$"
-  - trigger: ":2"
+  - trigger: ";2"
     replace: "## $|$"
-  - trigger: ":3"
+  - trigger: ";3"
     replace: "### $|$"
-  - trigger: ":4"
+  - trigger: ";4"
     replace: "#### $|$"
-  - trigger: ":5"
+  - trigger: ";5"
     replace: "##### $|$"
-  - trigger: ":quote"
+  - trigger: ";quote"
     replace: |-
       >{{clipboard}}
       —$|$
     vars:
       - name: clipboard
         type: clipboard
-  - trigger: ":^"
+  - trigger: ";^"
     replace: "[^$|$]: {{clipboard}}"
     vars:
       - name: clipboard
         type: clipboard
-  - trigger: ":!^"
+  - trigger: ";!^"
     replace: "[^$|$]: !{{clipboard}}"
     vars:
       - name: clipboard
         type: clipboard
-  - trigger: ":daily"
+  - trigger: ";daily"
     replace: "[^$|$]: ![[{{mydate}}]]"
     vars:
       - name: mydate
         type: match
         params:
-          trigger: ":date"
-  - trigger: ":[^"
+          trigger: ";date"
+  - trigger: ";[^"
     replace: "[^$|$]: ![[{{clipboard}}]]"
     vars:
       - name: clipboard
         type: clipboard
   # Shell commands
-  - trigger: ":shell"
+  - trigger: ";shell"
     replace: "{{output}}"
     vars:
       - name: output
@@ -88,11 +88,11 @@ matches:
         params:
           cmd: "echo Hello from your shell"
   # Parachute specific
-  - trigger: ":candidate"
+  - trigger: ";candidate"
     replace: | 
       Hi $|$,
       Thank you for your availability. This will be a 2-hour pair programming session with <_______>. To prepare for this, please
-      install Tuple (https://tupple.app), our preferred pair programming tool. This will allow us to remotely pair. You will not need anything 
+      install Tuple (https://tuple.app), our preferred pair programming tool. This will allow us to remotely pair. You will not need anything 
       else set up on your machine. Please feel free to ask if you have any questions.
 
       Thanks,
