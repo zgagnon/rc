@@ -160,3 +160,5 @@ else
     source ~/.vimrc.local
   endif
 endif
+
+set tabstop=3
