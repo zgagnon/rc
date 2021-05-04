@@ -97,4 +97,6 @@ matches:
 
       Thanks,
       Zoe
-
+  # Write Speak Code specific
+  - trigger: "WSC"
+    replace: Write/Speak/Code
